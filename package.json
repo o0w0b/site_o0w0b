@@ -1,0 +1,55 @@
+{
+  "name": "site.o0w0b",
+  "version": "1.0.0",
+  "private": true,
+  "description": "<h2 align=\"center\">o0w0b の homepage</h2>",
+  "main": "vite.config.js",
+  "overrides": {
+    "bin-wrapper": "npm:bin-wrapper-china"
+  },
+  "dependencies": {
+    "@esotericsoftware/spine-pixi-v7": "^4.2.76",
+    "@rollup/plugin-yaml": "^4.1.2",
+    "aplayer": "^1.10.1",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.8.2",
+    "howler": "^2.2.4",
+    "js-yaml": "^4.1.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^3.0.4",
+    "pixi.js": "^7.4.3",
+    "postcss": "^8.4.41",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
+    "postcss-px-to-viewport": "^1.1.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "vite-plugin-pwa": "^0.16.5",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.51.2",
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "prettier": "^3.0.3",
+    "vite": "^5.4.6",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-image-optimizer": "^2.0.3"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs"
+}

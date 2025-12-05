@@ -1,0 +1,136 @@
+<script setup>
+import { ref } from 'vue'
+import { useUserStore } from '@/composables/userStore'
+
+const userStore = useUserStore()
+
+const prop = defineProps(['percent'])
+
+const imgUrl = ref('/img/avatar2.png')
+const imgList = [
+  '/img/avatar1.png',
+  '/img/avatar2.png',
+  '/img/avatar3.png',
+  '/img/avatar4.png'
+]
+
+document.oncontextmenu = function () {
+  return false
+}
+const options = {
+  // 动画时长
+  duration: 2000,
+  // 动画前后保持的状态
+  fill: 'forwards',
+  // 动画缓动类型
+  easing: 'ease-in-out'
+}
+let a = 0
+imgUrl.value = imgList[a % 4]
+a++
+setInterval(() => {
+  imgUrl.value = imgList[a % 4]
+  a++
+}, 2000)
+</script>
+
+<template>
+  <div class="loading_wrapper">
+    <div ref="loadingImg" class="avatar_img bounce-top">
+      <img class="loading" :src="imgUrl" alt="" />
+      <div class="hide">
+        <img :src="imgList[0]" alt="" />
+        <img :src="imgList[1]" alt="" />
+        <img :src="imgList[2]" alt="" />
+        <img :src="imgList[3]" alt="" />
+        <video autoplay :src="userStore.videoSrc"></video>
+        <img src="/img/Tran_Main_Icon.png" alt="" />
+      </div>
+    </div>
+    <div class="progress_wrapper">
+      <h1 class="title">connecting...</h1>
+      <div class="percent">{{ Math.floor(prop.percent * 100) + '%' }}</div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.6666666667rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading {
+  animation: move 2s ease-in-out infinite;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@font-face {
+  font-family: TVPS-Vain-Capital-2;
+  src: url('/fonts/TVPS-Vain-Capital-2.ttf') format('truetype');
+  /* src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/TVPS-Vain-Capital-2.ttf') format('truetype'); */
+}
+
+.loading_wrapper {
+  background: url('/img/loading_bg_pc.png')
+    center;
+  background-size: cover;
+  overflow: hidden;
+  z-index: 98;
+}
+
+.loading_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.progress_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.progress_wrapper .title {
+  font-family: TVPS-Vain-Capital-2, system-ui;
+  color: #1289f9;
+  font-size: 1.8rem;
+}
+
+.progress_wrapper .percent {
+  margin-top: 0.3666666667rem;
+  font-size: 1.4rem;
+  font-family: TVPS-Vain-Capital-2, system-ui;
+  color: #1289f9;
+}
+
+.hide {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.avatar_img {
+  height: 340px;
+}
+</style>

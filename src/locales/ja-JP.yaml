@@ -1,0 +1,172 @@
+# ウェブサイト基本設定
+title: o0w0b の homepage
+description: o0w0b の homepage
+favicon: "/img/favicon144.jpg"
+author: o0w0b
+keywords: "o0w0b, homepage"
+ICP: ""
+
+# PWA設定
+manifest:
+  name: o0w0b の homepage
+  short_name: o0w0b の homepage
+  description: o0w0b の homepage
+  theme_color: "#128AFA"
+  start_url: /
+  id: Homepage
+  icons:
+    - src: /img/favicon512.jpg
+      sizes: 512x512
+      purpose: any maskable
+    - src: /img/favicon144.jpg
+      sizes: 144x144
+
+# 個人情報
+level: 1
+exp: 11
+nextExp: 26
+
+# Iconfont
+iconfont: "https://at.alicdn.com/t/c/font_4677609_ip3vvg4e9q.js"
+
+# 下部プロジェクト情報
+dock:
+  - name: jsDelivr
+    href: "https://www.jsdelivr.com/github"
+    imgSrc: /icon/jsdelivr_Icon.ico
+  - name: Netdisk
+    href: "https://netdisk.o0w0b.top"
+    imgSrc: /icon/Netdisk_Icon.png
+  - name: ImgBed
+    href: "https://imgbed.o0w0b.top"
+    imgSrc: /icon/ImgBed_Icon.png
+
+# 左側連絡方法
+contact:
+  - name: gitee
+    href: "https://gitee.com"
+    iconfont: icon-gitee
+  - name: Github
+    href: "https://github.com"
+    iconfont: icon-GitHub
+  - name: npmjs
+    href: "https://npmjs.com"
+    imgSrc: /icon/npmjs_Icon.ico
+  - name: Vercel
+    href: "https://vercel.com"
+    iconfont: icon-Vercel
+  - name: ClawCloud
+    href: "https://ap-northeast-1.run.claw.cloud"
+    imgSrc: /icon/clawcloud_Icon.ico
+  - name: Cloudflare
+    href: "https://dash.cloudflare.com"
+    iconfont: icon-Cloudflare_B
+
+# タスクボタン起動
+task:
+  name: ブログ
+  href: "https://blog.o0w0b.top"
+
+# バナーミュージック
+banner:
+  enable: # true / false
+    false
+  musicID:
+    - 2098478355
+
+# 思い出ロビー
+memorialLobbies:
+  - name: Yuuka
+    path: "/l2d/Yuuka/"
+    skel: "CH0284_home.skel"
+    atlas: "CH0284_home.atlas"
+    bgm: "/music/Theme_216.ogg"
+    voice:
+      CH0284_MemorialLobby_0_1: ლ(´ڡ`ლ)
+      CH0284_MemorialLobby_0_2: w(ﾟДﾟ)w
+      CH0284_MemorialLobby_1: せ、先生？こんな時間にどうして……？
+      CH0284_MemorialLobby_2_1: え、えっと……これは、その……
+      CH0284_MemorialLobby_2_2: ちょっと寝付けなくて、散歩に出たら……
+      CH0284_MemorialLobby_2_3: そこの貼り紙の「エンジェルチキン」が目に入ったんです……。
+      CH0284_MemorialLobby_3_1: だ、だって、仕方ないでしょう？
+      CH0284_MemorialLobby_3_2: この時間のエンジェルチキンは、揚げたてなんです！
+      CH0284_MemorialLobby_3_3: あっつあつで肉汁たっぷりなんですから！買わない手はありません！
+      CH0284_MemorialLobby_4_1: だ、だからその……別に、毎日毎日、
+      CH0284_MemorialLobby_4_2: 夜食を取ってるわけじゃ、ないんですから……。
+      CH0284_MemorialLobby_5_1: えっと……よかったら、
+      CH0284_MemorialLobby_5_2: 先生も一口、食べますか？
+    offset: 0.68
+    dialogueDisplay:
+      x: 1/8 + 1/8
+      y: 1/8
+      position: left
+  - name: Shiroko
+    path: "/l2d/Shiroko/"
+    skel: "LobbyShiroko_multi.skel"
+    atlas: "LobbyShiroko_multi.atlas"
+    bgm: "/music/BlueNewWorld_Lobby.ogg"
+    voice:
+    #   Talk_01_A:
+    offset: 0.32
+    dialogueDisplay:
+      x:
+      y:
+      position:
+  - name: Hoshino
+    path: "/l2d/Hoshino/"
+    skel: "LobbyHoshino_multi.skel"
+    atlas: "LobbyHoshino_multi.atlas"
+    bgm: "/music/Theme_234.ogg"
+    voice:
+      # Talk_01_A:
+    offset: 0.32
+    dialogueDisplay:
+      x:
+      y:
+      position:
+  - name: Nonomi
+    path: "/l2d/Nonomi/"
+    skel: "LobbyNonomi_multi.skel"
+    atlas: "LobbyNonomi_multi.atlas"
+    bgm: "/music/Theme_228.ogg"
+    voice:
+      # Talk_01_A:
+    offset: 0.32
+    dialogueDisplay:
+      x:
+      y:
+      position:
+  - name: Serika
+    path: "/l2d/Serika/"
+    skel: "LobbySerika_multi.skel"
+    atlas: "LobbySerika_multi.atlas"
+    bgm: "/music/Mitsukiyo - Dive into Summer.mp3"
+    voice:
+      # Talk_01_A:
+    offset: 0.68
+    dialogueDisplay:
+      x:
+      y:
+      position:
+  - name: Ayane
+    path: "/l2d/Ayane/"
+    skel: "LobbyAyane_multi.skel"
+    atlas: "LobbyAyane_multi.atlas"
+    bgm: "/music/Theme_263.ogg"
+    voice:
+      # Talk_01_A:
+    offset: 0.68
+    dialogueDisplay:
+      x:
+      y:
+      position:
+
+# 翻訳文字列
+translate:
+  about: について
+  projectWebsite: "ソースコード: "
+  info: 情報
+  ifSkip: スキップしますか？
+  update: サイトが更新されました。最新の内容を見るにはページを更新してください！
+  ok: OK
+  cancel: キャンセル

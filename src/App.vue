@@ -184,9 +184,6 @@ main {
 }
 
 #background {
-  /* background-image: url('/img/Event_Main_Stage_Bg.png');
-  background-position: center;
-  background-size: cover; */
   width: 100%;
   height: 100%;
   position: absolute;

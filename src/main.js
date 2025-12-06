@@ -1,30 +1,30 @@
 import './index.css'
-import '@arco-design/web-vue/dist/arco.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import ArcoVue from '@arco-design/web-vue'
-import ArcoVueIcon from '@arco-design/web-vue/es/icon'
-import { Modal } from '@arco-design/web-vue'
 import { registerSW } from 'virtual:pwa-register'
-
 import App from './App.vue'
 import { useConfig } from '@/composables/useConfig'
 import * as PIXI from 'pixi.js'
+
+// 配置相关
+const { configs } = useConfig()
+const config = configs.value
+document.title = config.title
 
 // 创建应用
 const pinia = createPinia()
 const app = createApp(App)
 
 app.use(pinia)
-app.use(ArcoVue)
-app.use(ArcoVueIcon)
-app.mount('#app')
 
-// 配置相关
-const { configs } = useConfig()
-const config = configs.value
-document.title = config.title
+// 动态加载 iconfont CSS
+if (configs.value.iconfont) {
+  const link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = configs.value.iconfont
+  document.head.appendChild(link)
+}
+app.mount('#app')
 
 // PWA 更新提示
 if ('serviceWorker' in navigator) {

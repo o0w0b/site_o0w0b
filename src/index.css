@@ -12,14 +12,20 @@
 
 @font-face {
   font-family: BlueakaBeta2GBK-DemiBold;
-  src: url('/fonts/BlueakaBeta2GBK-DemiBold.ttf') format('truetype');
-  /* src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/BlueakaBeta2GBK-DemiBold.ttf') format('truetype'); */
+  /* src: url('/fonts/BlueakaBeta2GBK-DemiBold.ttf') format('truetype'); */
+  src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/BlueakaBeta2GBK-DemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: BlueakaBeta2GBK-Bold;
-  src: url('/fonts/BlueakaBeta2GBK-Bold.ttf') format('truetype');
-  /* src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/BlueakaBeta2GBK-Bold.ttf') format('truetype'); */
+  /* src: url('/fonts/BlueakaBeta2GBK-Bold.ttf') format('truetype'); */
+  src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/BlueakaBeta2GBK-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
@@ -37,6 +43,7 @@ a {
 
 .blue-text-color {
   color: #0a5694;
+  font-family: BlueakaBeta2GBK-Bold, system-ui;
 }
 
 /* 放大 Checkbox 外观 */

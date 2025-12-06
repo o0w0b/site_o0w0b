@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import axios from 'axios'
-import 'aplayer/dist/APlayer.min.css'
-import APlayer from 'aplayer'
+import 'aplayer-ts/dist/APlayer.min.css'
+import APlayer from 'aplayer-ts'
 import config from '/_config.yaml'
 
 const aplayerRef = ref(null)

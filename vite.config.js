@@ -1,12 +1,15 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { load } from 'js-yaml'
+
 import fs from 'fs'
 const config = load(fs.readFileSync('_config.yaml', 'utf8'))
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import Components from 'unplugin-vue-components/vite'
+import { ArcoResolver } from 'unplugin-vue-components/resolvers'
+import AutoImport from 'unplugin-auto-import/vite'
 import viteCompression from 'vite-plugin-compression'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -23,9 +26,12 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // return id.toString().split('node_modules/')[1].split('/')[0].toString()
             if (id.includes('@vue')) return 'vue'
             if (id.includes('axios')) return 'axios'
+            if (id.includes('howler')) return 'howler'
+            if (id.includes('@arco')) return 'arco'
+            if (id.includes('pixi.js') || id.includes('@pixi')) return 'pixi'
+            if (id.includes('@esotericsoftware')) return 'spine-pixi'
             return 'vendor'
           }
         }
@@ -35,6 +41,27 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    Components({
+      dirs: ['src/components'],   // 去这里扫 .vue
+      extensions: ['vue'],
+      deep: false,                 // true 扫描子目录
+      resolvers: [
+        ArcoResolver({              // Arco 解析器
+          resolveIcons: true,        // 按需导入图标组件
+          sideEffect: true           // 自动引样式
+        })
+      ]
+    }),
+    AutoImport({
+      // 强制导入函数式 API，避免未识别报错
+      imports: [
+        'vue',
+        {
+          '@arco-design/web-vue': ['Modal']
+        }
+      ],
+      resolvers: [ArcoResolver()],
+    }),
     createHtmlPlugin({
       inject: {
         data: {
@@ -51,27 +78,27 @@ export default defineConfig({
         optimizationLevel: 7,
         interlaced: false
       },
+      // 先进行无损压缩，再进行有损压缩
       optipng: {
         optimizationLevel: 3
-      },
-      mozjpeg: {
-        quality: 50
       },
       pngquant: {
         quality: [0.9, 1],
         speed: 4
       },
+      // 
+      mozjpeg: {
+        quality: 50
+      },
       svgo: {
         plugins: [
-          {
-            name: 'removeViewBox'
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false
-          }
+          { name: 'removeViewBox', active: false }, // 保留 viewBox
+          { name: 'removeEmptyAttrs', active: false }, // 保留空属性
+          { name: 'removeComments', active: true }, // 删除注释
         ]
-      }
+      },
+      // 跳过 public/l2d/Yuuka 整个目录
+      exclude: /\/public\/l2d\/Yuuka\/.*/,
     }),
     VitePWA({
       mode: 'production',

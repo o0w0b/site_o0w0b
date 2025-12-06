@@ -1,12 +1,8 @@
 <script setup>
-import { Icon } from '@arco-design/web-vue'
 import { useConfig } from '@/composables/useConfig'
 const { configs } = useConfig()
 const config = configs.value
 
-const IconFont = Icon.addFromIconFontCn({
-  src: config.iconfont
-})
 </script>
 
 <template>
@@ -18,7 +14,7 @@ const IconFont = Icon.addFromIconFontCn({
       class="contact css-cursor-hover-enabled"
     >
       <img v-if="contact.imgSrc" :src="contact.imgSrc" alt="" />
-      <icon-font v-if="contact.iconfont" :type="contact.iconfont" />
+      <i v-else-if="contact.iconfont" :class="['iconfont', contact.iconfont]" />
       <span>{{ contact.name }}</span>
     </a>
   </div>
@@ -53,7 +49,7 @@ const IconFont = Icon.addFromIconFontCn({
   margin: 5px 0 0;
   font-size: 20px;
   color: #003153;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .contact span {
@@ -69,9 +65,16 @@ const IconFont = Icon.addFromIconFontCn({
   filter: drop-shadow(0px 0px 4px #fff6);
 }
 
-.contact img {
-  height: 48px;
-  filter: drop-shadow(0px 0px 4px #fff6);
+/* 图片和字体图标统一大小和阴影效果 */
+.contact img,
+.contact .iconfont {
+  width: 48px;           /* 图片宽度 */
+  height: 48px;          /* 图片高度 */
+  font-size: 48px;       /* 字体图标大小 */
+  line-height: 48px;     /* 字体垂直居中 */
+  filter: drop-shadow(0 0 4px #fff6);
+  display: inline-block;
+  text-align: center;
 }
 
 .contact:active {

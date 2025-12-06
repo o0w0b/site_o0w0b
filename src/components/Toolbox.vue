@@ -1,5 +1,4 @@
 <script setup>
-import { Modal } from '@arco-design/web-vue'
 import { h, ref } from 'vue'
 
 import { useConfig } from '@/composables/useConfig'
@@ -40,6 +39,7 @@ const pyroxene = ref(
     )
 )
 const img = ref('/img/max.png')
+console.log('[init] img.value =', img.value)
 const showMin = ref(false)
 const hover = ref(window.matchMedia('(hover: none)').matches)
 
@@ -53,13 +53,14 @@ const about = () => {
             h('br', {}, ''),
             h('a', { href: 'https://beian.miit.gov.cn/', target: '_blank' }, config.ICP)
           ]
-        : null
+        : []
     ],
     footer: false
   })
 }
 
 const change = () => {
+  console.log('[change] img.value ->', img.value) 
   if (!props.canskip) {
     img.value = img.value === '/img/min.png' ? '/img/max.png' : '/img/min.png'
     emit('switch')
@@ -191,8 +192,8 @@ setInterval(() => {
 }
 
 .toolbox.l2d img {
-  filter: drop-shadow(-100vw 0px 0px #003153);
-  transform: translateX(100vw);
+  transform: translateX(2.5rem);
+  filter: drop-shadow(-2.5rem 0px 0px #003153);
   height: 32px;
 }
 

@@ -1,11 +1,31 @@
 <script setup>
 import { Spine } from '@esotericsoftware/spine-pixi-v7'
 import * as PIXI from 'pixi.js'
-import { Modal } from '@arco-design/web-vue'
 import { useConfig } from '@/composables/useConfig'
 import { useUserStore } from '@/composables/userStore'
 import { Howl } from 'howler'
 import { ref, computed, onUnmounted } from 'vue'
+
+// 字符串 → 数字（失败会返回0）
+const parseRate = s => {
+  if (typeof s === 'string') {
+    // 1. 先算分数表达式
+    if (s.includes('/')) {
+      try {
+        // 支持 1/8+1/8、1/4-0.1、1-1/3 等
+        s = Function('"use strict";return (' + s + ')')()
+      } catch {
+        return 0
+      }
+    }
+    // 2. 再按百分比处理
+    const str = String(s).trim()
+    if (str.endsWith('%')) return Number(str.slice(0, -1)) / 100
+    return Number(str) || 0
+  }
+  // 3. 数字就直接用
+  return Number(s) || 0
+}
 
 const { configs, locale } = useConfig()
 const config = configs.value
@@ -39,12 +59,15 @@ const loadedBgmUrl = new Set()  // 已经缓存过的地址
 const FADE_MS = userStore.fadeMS  // 淡入淡出总时长（毫秒）
 const TARGET_VOL = userStore.targetVol // BGM 目标音量
 
-window.onresize = () => {
+const updateDialoguePos = () => {
+  const cfg = config.memorialLobbies[id].dialogueDisplay
   dialogueDisplay.value.x =
-    eval(config.memorialLobbies[id].dialogueDisplay.x) * document.documentElement.clientWidth
+    parseRate(cfg.x) * document.documentElement.clientWidth
   dialogueDisplay.value.y =
-    eval(config.memorialLobbies[id].dialogueDisplay.y) * document.documentElement.clientHeight
+    parseRate(cfg.y) * document.documentElement.clientHeight
 }
+
+window.onresize = () => updateDialoguePos()
 
 const dialogueDisplay = ref({
   x: 0,
@@ -163,10 +186,7 @@ const setL2D = async (num) => {
 
   id = newId  // 用 newId 更新 id
 
-  dialogueDisplay.value.x =
-    eval(config.memorialLobbies[id].dialogueDisplay.x) * document.documentElement.clientWidth
-  dialogueDisplay.value.y =
-    eval(config.memorialLobbies[id].dialogueDisplay.y) * document.documentElement.clientHeight
+  updateDialoguePos()
   dialogueDisplay.value.position = config.memorialLobbies[id].dialogueDisplay.position
 
   animation = Spine.from('skeleton' + id, 'atlas' + id)

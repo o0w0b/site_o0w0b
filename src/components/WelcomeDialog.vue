@@ -38,9 +38,9 @@ const setDontShowWelcomeDialogFlag = () => {
       <p>
         本站由
         <a
-          href="https://x.com/ApricotLemonTea"
+          href="https://o0w0b.top"
           target="_blank"
-          style="color: #3987ff; font-weight: bold"
+          style="color: #3987ff; font-weight: 700"
           >o0w0b</a
         >
         创建与维护

@@ -86,8 +86,6 @@ const skip = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: url('/img/Event_Main_Stage_Bg.png') center;
-  background-size: cover; */
   z-index: 10;
   display: flex;
   align-items: center;
@@ -134,7 +132,7 @@ const skip = () => {
   justify-content: center;
   color: #fff;
   font-size: 26px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .task:active {

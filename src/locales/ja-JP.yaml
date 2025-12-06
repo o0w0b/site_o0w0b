@@ -27,7 +27,7 @@ exp: 11
 nextExp: 26
 
 # Iconfont
-iconfont: "https://at.alicdn.com/t/c/font_4677609_ip3vvg4e9q.js"
+iconfont: "https://at.alicdn.com/t/c/font_5082259_rwfef5xw7q.css"
 
 # 下部プロジェクト情報
 dock:
@@ -48,19 +48,19 @@ contact:
     iconfont: icon-gitee
   - name: Github
     href: "https://github.com"
-    iconfont: icon-GitHub
+    iconfont: icon-github
   - name: npmjs
     href: "https://npmjs.com"
-    imgSrc: /icon/npmjs_Icon.ico
+    iconfont: icon-npmjs
   - name: Vercel
     href: "https://vercel.com"
-    iconfont: icon-Vercel
+    iconfont: icon-vercel
   - name: ClawCloud
     href: "https://ap-northeast-1.run.claw.cloud"
     imgSrc: /icon/clawcloud_Icon.ico
   - name: Cloudflare
     href: "https://dash.cloudflare.com"
-    iconfont: icon-Cloudflare_B
+    iconfont: icon-cloudflare
 
 # タスクボタン起動
 task:
@@ -80,7 +80,7 @@ memorialLobbies:
     path: "/l2d/Yuuka/"
     skel: "CH0284_home.skel"
     atlas: "CH0284_home.atlas"
-    bgm: "/music/Theme_216.ogg"
+    bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Theme_216.ogg"
     voice:
       CH0284_MemorialLobby_0_1: ლ(´ڡ`ლ)
       CH0284_MemorialLobby_0_2: w(ﾟДﾟ)w
@@ -104,9 +104,8 @@ memorialLobbies:
     path: "/l2d/Shiroko/"
     skel: "LobbyShiroko_multi.skel"
     atlas: "LobbyShiroko_multi.atlas"
-    bgm: "/music/BlueNewWorld_Lobby.ogg"
+    bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/BlueNewWorld_Lobby.ogg"
     voice:
-    #   Talk_01_A:
     offset: 0.32
     dialogueDisplay:
       x:
@@ -116,9 +115,8 @@ memorialLobbies:
     path: "/l2d/Hoshino/"
     skel: "LobbyHoshino_multi.skel"
     atlas: "LobbyHoshino_multi.atlas"
-    bgm: "/music/Theme_234.ogg"
+    bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Theme_234.ogg"
     voice:
-      # Talk_01_A:
     offset: 0.32
     dialogueDisplay:
       x:
@@ -128,9 +126,8 @@ memorialLobbies:
     path: "/l2d/Nonomi/"
     skel: "LobbyNonomi_multi.skel"
     atlas: "LobbyNonomi_multi.atlas"
-    bgm: "/music/Theme_228.ogg"
+    bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Theme_228.ogg"
     voice:
-      # Talk_01_A:
     offset: 0.32
     dialogueDisplay:
       x:
@@ -140,9 +137,8 @@ memorialLobbies:
     path: "/l2d/Serika/"
     skel: "LobbySerika_multi.skel"
     atlas: "LobbySerika_multi.atlas"
-    bgm: "/music/Mitsukiyo - Dive into Summer.mp3"
+    bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Mitsukiyo - Dive into Summer.mp3"
     voice:
-      # Talk_01_A:
     offset: 0.68
     dialogueDisplay:
       x:
@@ -152,9 +148,8 @@ memorialLobbies:
     path: "/l2d/Ayane/"
     skel: "LobbyAyane_multi.skel"
     atlas: "LobbyAyane_multi.atlas"
-    bgm: "/music/Theme_263.ogg"
+    bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Theme_222.ogg"
     voice:
-      # Talk_01_A:
     offset: 0.68
     dialogueDisplay:
       x:

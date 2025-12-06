@@ -78,8 +78,11 @@ img {
 
 @font-face {
   font-family: TVPS-Vain-Capital-2;
-  src: url('/fonts/TVPS-Vain-Capital-2.ttf') format('truetype');
-  /* src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/TVPS-Vain-Capital-2.ttf') format('truetype'); */
+  /* src: url('/fonts/TVPS-Vain-Capital-2.ttf') format('truetype'); */
+  src: url('https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/fonts/TVPS-Vain-Capital-2.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 .loading_wrapper {

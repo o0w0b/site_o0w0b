@@ -1,14 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import { Icon } from '@arco-design/web-vue'
 
 import { useConfig } from '@/composables/useConfig'
 const { configs } = useConfig()
 const config = configs.value
 
-const IconFont = Icon.addFromIconFontCn({
-  src: config.iconfont
-})
 const time = ref(new Date().getHours() + ':' + new Date().getMinutes())
 
 const addZero = (time) => {
@@ -30,7 +26,7 @@ setInterval(() => {
         class="project css-cursor-hover-enabled"
       >
         <img v-if="site.imgSrc" :src="site.imgSrc" alt="" />
-        <icon-font v-if="site.iconfont" :type="site.iconfont" />
+        <i v-else-if="site.iconfont" :class="['iconfont', site.iconfont]" />
         <span>{{ site.name }}</span>
       </a>
     </div>
@@ -134,9 +130,16 @@ setInterval(() => {
   font-size: 64px;
 }
 
-.project img {
+/* 图片和字体图标统一大小和阴影效果 */
+.project img,
+.project .iconfont {
   width: 64px;
   height: 64px;
+  font-size: 64px;
+  line-height: 64px;
+  display: inline-block;
+  text-align: center;
+  filter: drop-shadow(0 0 4px #fff6);
 }
 
 @media screen and (max-width: 830px) {

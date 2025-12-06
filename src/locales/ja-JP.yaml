@@ -95,7 +95,7 @@ memorialLobbies:
       CH0284_MemorialLobby_4_2: 夜食を取ってるわけじゃ、ないんですから……。
       CH0284_MemorialLobby_5_1: えっと……よかったら、
       CH0284_MemorialLobby_5_2: 先生も一口、食べますか？
-    offset: 0.68
+    offset: 0.61
     dialogueDisplay:
       x: 1/8 + 1/8
       y: 1/8
@@ -128,7 +128,7 @@ memorialLobbies:
     atlas: "LobbyNonomi_multi.atlas"
     bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Theme_228.ogg"
     voice:
-    offset: 0.32
+    offset: 0.30
     dialogueDisplay:
       x:
       y:
@@ -139,7 +139,7 @@ memorialLobbies:
     atlas: "LobbySerika_multi.atlas"
     bgm: "https://cdn.jsdelivr.net/gh/o0w0b/StaticFiles@main/music/Mitsukiyo - Dive into Summer.mp3"
     voice:
-    offset: 0.68
+    offset: 0.72
     dialogueDisplay:
       x:
       y:

@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import axios from 'axios'
-import 'aplayer-ts/dist/APlayer.min.css'
-import APlayer from 'aplayer-ts'
+import '@o0w0b/aplayer-vite/dist/APlayer.min.css'
+import APlayer from '@o0w0b/aplayer-vite'
 import config from '/_config.yaml'
 
 const aplayerRef = ref(null)
@@ -15,19 +15,14 @@ const isShowPlayer = config.banner.enable
 const songlist = config.banner.musicID
 
 const checkScreenSize = () => {
+  if (!ap.value) return
   isMiniMode.value = window.innerWidth <= 768
-
-  if (isMiniMode.value) {
-    ap.value.setMode('mini')
-  } else {
-    ap.value.setMode('normal')
-  }
+  ap.value.setMode(isMiniMode.value ? 'mini' : 'normal')
 }
 
-// 初始化播放器
-onMounted(async () => {
-  await nextTick() // 确保 DOM 已渲染
-  if (!aplayerRef.value) return
+// 初始化播放器函数
+const initPlayer = () => {
+  if (!aplayerRef.value || ap.value) return
 
   ap.value = new APlayer({
     container: aplayerRef.value,
@@ -48,12 +43,32 @@ onMounted(async () => {
 
   checkScreenSize()
   window.addEventListener('resize', checkScreenSize)
+}
+
+// 监听显示状态 → 显示时再初始化
+watch(
+  () => isShowPlayer,
+  async (val) => {
+    if (val && !ap.value) {
+      await nextTick()
+      initPlayer()
+    }
+  },
+  { immediate: true }
+)
+
+onMounted(async () => {
+  if (isShowPlayer) {
+    await nextTick()
+    initPlayer()
+  }
 })
 
 // 组件卸载时销毁播放器
 onBeforeUnmount(() => {
   if (ap.value) {
     ap.value.destroy()
+    window.removeEventListener('resize', checkScreenSize)
   }
 })
 
@@ -115,7 +130,7 @@ const addRandomSong = async () => {
 </script>
 
 <template>
-  <div id="aplayer" ref="aplayerRef" v-if="isShowPlayer"></div>
+  <div id="aplayer" ref="aplayerRef" v-show="isShowPlayer"></div>
 </template>
 
 <style scoped>

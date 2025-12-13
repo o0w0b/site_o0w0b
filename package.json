@@ -12,6 +12,7 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.57.0",
     "@esotericsoftware/spine-pixi-v7": "^4.2.95",
+    "@o0w0b/aplayer-vite": "^1.0.3",
     "@pixi/assets": "^7.2.4",
     "@pixi/core": "^7.2.4",
     "@pixi/display": "^7.2.4",
@@ -20,7 +21,6 @@
     "@pixi/mesh": "^7.2.4",
     "@pixi/sprite": "^7.4.3",
     "@pixi/text": "^7.2.4",
-    "aplayer-ts": "^2.6.0",
     "axios": "^1.13.2",
     "howler": "^2.2.4",
     "nprogress": "^0.2.0",

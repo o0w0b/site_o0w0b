@@ -25,6 +25,9 @@ dock:
   - name: jsDelivr
     href: "https://www.jsdelivr.com/github"
     imgSrc: /icon/jsdelivr_Icon.ico
+  - name: CloudPaste
+    href: "https://share.o0w0b.top"
+    imgSrc: /icon/CloudPaste_Icon.png
   - name: Netdisk
     href: "https://netdisk.o0w0b.top"
     imgSrc: /icon/Netdisk_Icon.png
